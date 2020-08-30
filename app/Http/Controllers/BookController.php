@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Data_buku;
+use Symfony\Component\VarDumper\Cloner\Data;
 
 class BookController extends Controller
 {
@@ -38,6 +39,7 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
+        // cara create ke 1
         $book = new data_buku;
         $book->judul = $request->judul;
         $book->pengarang = $request->pengarang;
@@ -45,6 +47,17 @@ class BookController extends Controller
         $book->tahun = $request->tahun;
 
         $book->save();
+
+        // cara create ke 2, lanjutkan stepnya ke model 
+        // Data_buku::create([
+        //     'judul' => $request->judul,
+        //     'pengarang' => $request->pengarang,
+        //     'penerbit' => $request->penerbit,
+        //     'tahun' => $request->tahun
+        // ]);
+
+        // cara create ke 3 jika sudah menentukan fillable di model
+        // Data_buku::create($request->all());
 
         return redirect('/Book');
     }
