@@ -46,6 +46,19 @@ class BookController extends Controller
         $book->penerbit = $request->penerbit;
         $book->tahun = $request->tahun;
 
+        // membuat validation
+        $request->validate([
+            'judul' => 'required',
+            'pengarang' => 'required',
+            'penerbit' => 'required',
+            'tahun' => 'required'
+        ], [
+            'judul.required' => 'Judul harus diisi',
+            'pengarang.required' => 'Pengarang harus diisi',
+            'penerbit.required' => 'Penerbit harus diisi',
+            'tahun.required' => 'Tahun harus diisi'
+        ]);
+
         $book->save();
 
         // cara create ke 2, lanjutkan stepnya ke model 

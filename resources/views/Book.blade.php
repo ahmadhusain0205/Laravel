@@ -80,19 +80,34 @@
                     @csrf
                     <div class="form-group">
                         <label for="judul">Judul</label>
-                        <input type="text" class="form-control" id="judul" name="judul" placeholder="Enter Title..." required>
+                        <input type="text" class="form-control @error('judul') is-invalid @enderror" id="judul" name="judul" placeholder="Enter Title..." required>
+                        @error('judul')
+                        <div id="validationServer03Feedback" class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="pengarang">Pengarang</label>
-                        <input type="text" class="form-control" id="pengarang" name="pengarang" placeholder="Enter Author..." required>
+                        <input type="text" class="form-control @error('pengarang') is-invalid @enderror" id="pengarang" name="pengarang" placeholder="Enter Author..." required>
+                        @error('pengarang')
+                        <div id="validationServer03Feedback" class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="penerbit">Penerbit</label>
-                        <input type="text" class="form-control" id="penerbit" name="penerbit" placeholder="Enter Publisher..." required>
+                        <input type="text" class="form-control @error('penerbit') is-invalid @enderror" id="penerbit" name="penerbit" placeholder="Enter Publisher..." required>
+                        @error('penerbit')
+                        <div id="validationServer03Feedback" class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="tahun">Tahun</label>
-                        <select name="tahun" id="tahun" class="form-control" required>
+                        <select name="tahun" id="tahun" class="form-control @error('tahun') is-invalid @enderror" required>
                             <option value="">-- Select Year --</option>
                             <?php
                             for ($tahun = date('Y'); $tahun >= 1990; $tahun--) {
@@ -100,6 +115,11 @@
                                 <option value="<?= $tahun; ?>"><?= $tahun; ?></option>
                             <?php } ?>
                         </select>
+                        @error('tahun')
+                        <div id="validationServer03Feedback" class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <hr>
                     <button type="submit" class="btn btn-success float-right">Create</button>
