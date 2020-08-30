@@ -17,6 +17,11 @@
                         </a>
                     </h4>
                     <br>
+                    @if (session('pesan'))
+                    <div class="alert alert-success">
+                        {{ session('pesan') }}
+                    </div>
+                    @endif
                     <table class="table">
                         <thead>
                             <tr>

@@ -59,7 +59,7 @@ class BookController extends Controller
         // cara create ke 3 jika sudah menentukan fillable di model
         // Data_buku::create($request->all());
 
-        return redirect('/Book');
+        return redirect('/Book')->with('pesan', 'Data berhasil di tambahkan');
     }
 
     /**
