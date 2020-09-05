@@ -80,7 +80,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="judul">Judul</label>
-                        <input type="text" class="form-control @error('judul') is-invalid @enderror" id="judul" name="judul" placeholder="Enter Title..." required>
+                        <input type="text" class="form-control @error('judul') is-invalid @enderror" id="judul" name="judul" placeholder="Enter Title..." value="{{ old('judul') }}" required>
                         @error('judul')
                         <div id="validationServer03Feedback" class="invalid-feedback">
                             {{ $message }}
@@ -89,18 +89,18 @@
                     </div>
                     <div class="form-group">
                         <label for="pengarang">Pengarang</label>
-                        <input type="text" class="form-control @error('pengarang') is-invalid @enderror" id="pengarang" name="pengarang" placeholder="Enter Author..." required>
+                        <input type="text" class="form-control @error('pengarang') is-invalid @enderror" id="pengarang" name="pengarang" placeholder="Enter Author..." value="{{ old('pengarang') }} ">
                         @error('pengarang')
-                        <div id="validationServer03Feedback" class="invalid-feedback">
+                        <div id=" validationServer03Feedback" class="invalid-feedback">
                             {{ $message }}
                         </div>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label for="penerbit">Penerbit</label>
-                        <input type="text" class="form-control @error('penerbit') is-invalid @enderror" id="penerbit" name="penerbit" placeholder="Enter Publisher..." required>
+                        <input type="text" class="form-control @error('penerbit') is-invalid @enderror" id="penerbit" name="penerbit" placeholder="Enter Publisher..." value="{{ old('penerbit') }}">
                         @error('penerbit')
-                        <div id="validationServer03Feedback" class="invalid-feedback">
+                        <div id=" validationServer03Feedback" class="invalid-feedback">
                             {{ $message }}
                         </div>
                         @enderror
